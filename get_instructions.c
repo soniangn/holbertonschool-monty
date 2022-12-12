@@ -10,7 +10,7 @@
 int get_instructions(char *str, stack_t **head, unsigned int line_number)
 {
     instruction_t opcodes[] = {
-        {"push", push}, 
+        {"pall", op_pall}, 
         {NULL, NULL}
     };
     int i = 0;
@@ -18,9 +18,13 @@ int get_instructions(char *str, stack_t **head, unsigned int line_number)
     while (opcodes[i].opcode != NULL)
     {
         if (strcmp(opcodes[i].opcode, str) == 0)
+        {
             opcodes[i].f(head, line_number);
-            return (1);
+            return (EXIT_SUCCESS);
+        }
         i++;
     }
-    return (0);
+    free(head);
+    fprint(stderr, "L%i: unknown instructions %s\n", line_number, str[0]);
+    return (EXIT_FAILURE);
 }

@@ -14,6 +14,7 @@ int main(int argc, int *argv[])
     char line[MAX_LEN];
 	int line_number = 1;
 	char *opcode;
+	char *value;
 	stack_t **head;
 
 	/* checks if there are exactly 2 arguments */
@@ -22,7 +23,7 @@ int main(int argc, int *argv[])
 		dprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	
+
 	fp = fopen(argv[1], "r"); /* opens the file */
 
     if (fp == NULL) /* if the file cannot be opened */
@@ -34,6 +35,11 @@ int main(int argc, int *argv[])
     while (fgets(line, MAX_LEN, fp) != NULL) /* reads line by line */
     {
 		opcode = strtok(line, " /n/t");
+		if (strcmp(opcode, "push") == 0)
+		{
+			value = (NULL, " ");
+			op_push(&head, line_number, value);
+		}
 		get_instructions(opcode, head, line_number);
 		line_number++;
     }
