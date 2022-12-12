@@ -34,6 +34,6 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-#define MAX_LEN 100
+int get_opcode(char *buf, stack_t **head, unsigned int line_number);
 
 #endif /*MONTY_H*/
