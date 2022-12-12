@@ -1,43 +1,39 @@
 #include "monty.h"
+#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /**
  * main - entry point
- * @argc: number of arguments
- * @argv: array of arguments
- * Return: 0
+ * @ac: number of args
+ * @av: args
+ * Return: 0 if succes
  */
-int main(int argc, int *argv[])
-{
-	FILE *fp;
-    char line[MAX_LEN];
-	int line_number = 1;
-	char *opcode;
-	stack_t **head;
 
-	/* checks if there are exactly 2 arguments */
-	if (argc != 2)
+int main(int ac, char *av[])
+{
+	FILE *fd; /* file descriptor */
+	char *buf; /* line of the file */
+	stack_t **head;
+	char *opcode; /* line who is strtok */
+	int line_number = 1; /* number of the line in the file */
+
+	if (ac != 2) /* if arguments are not 2 */
 	{
-		dprintf(stderr, "USAGE: monty file\n");
+		dprintf(STDERR_FILENO, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	
-	fp = fopen(argv[1], "r"); /* opens the file */
 
-    if (fp == NULL) /* if the file cannot be opened */
-    {
-        fprint(stderr, "Error: Can't open file %s\n", argv[1]);
-        exit(EXIT_FAILURE);
-    }
+	fd = fopen(av[1], "r"); /* open file */
 
-    while (fgets(line, MAX_LEN, fp) != NULL) /* reads line by line */
-    {
-		opcode = strtok(line, " /n/t");
-		get_instructions(opcode, head, line_number);
+	while (fgets(buf, strlen(buf), fd) != NULL) /* read line per line */
+	{
+		opcode = strtok(buf, " /n/t"); /* cut the line */
+		/* function who the call the func opcode if strcmp is 0*/
+		get_opcode(opcode, head, line_number);
 		line_number++;
-    }
-
-	fclose(fp);
+	}
+	fclose(fd); /* close the file */
 	return (0);
 }
