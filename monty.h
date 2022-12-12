@@ -37,9 +37,9 @@ typedef struct instruction_s
 #define MAX_LEN 100
 
 /* Functions prototypes */
-int main(int argc, int *argv[]);
+int main(int argc, char *argv[]);
 int get_instructions(char *str, stack_t **head, unsigned int line_number);
-void op_push(stack_t **stack, unsigned int line_number);
+void op_push(stack_t **stack, unsigned int line_number, char *value);
 void op_pall(stack_t **top, unsigned int line_number);
 
 #endif /*MONTY_H*/
