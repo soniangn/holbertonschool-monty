@@ -1,4 +1,5 @@
 #include "monty.h"
+#include <string.h>
 
 /**
  * get_opcode - call the functione opcode in the monty file
@@ -13,8 +14,7 @@ int get_opcode(char *buf, stack_t **head, unsigned int line_number)
 {
 	/* struct who call the function */
 	instruction_t func[] = {
-		{"push", push},
-		{"pall", pall},
+		{"push", op_push},
 		{NULL, NULL}
 	};
 	int i = 0;
@@ -23,7 +23,8 @@ int get_opcode(char *buf, stack_t **head, unsigned int line_number)
 	{
 		/* if the name of the function is 0 call the func */
 		if (strcmp(func[i].opcode, buf) == 0)
-			return ((int)((func[i].f)(head, line_number))); /* return the function */
+			func[i].f(head, line_number);
+			return (1); /* return the function */
 		i++;
 	}
 return (0);

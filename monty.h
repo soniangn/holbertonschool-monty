@@ -4,8 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+extern char *value;
 extern int number;
-
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -37,5 +37,7 @@ typedef struct instruction_s
 } instruction_t;
 
 int get_opcode(char *buf, stack_t **head, unsigned int line_number);
+void op_push(stack_t **top, unsigned int line_number);
+
 
 #endif /*MONTY_H*/
