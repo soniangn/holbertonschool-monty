@@ -6,16 +6,16 @@
  * op_push - function that pushes an element to the stack
  * @top: double pointer to the stack
  * @line_number: the line number where the opcode is called
- * @value: value of new node
  * Return: 0
  */
+
+char *value;
 
 void op_push(stack_t **top, unsigned int line_number)
 {
 	stack_t *new;
 	int element;
 
-	number = 1;
 	if (value == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%d: usage: push integer\n", line_number);
@@ -24,7 +24,7 @@ void op_push(stack_t **top, unsigned int line_number)
 
 	value = strtok(value, "$");
 	element = atoi(value);
-	number = element;
+
 	if (isdigit(element) == 0)
 	{
 		dprintf(STDERR_FILENO, "L%d: usage: push integer (%d)\n", line_number, element);
@@ -39,12 +39,14 @@ void op_push(stack_t **top, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	new->n = number;
+	new->n = element;
+	new->next = NULL;
 	new->prev = NULL;
-	new->next = *top;
+
 	if ((*top) != NULL)
 	{
 		(*top)->prev = new;
 	}
+	new->next = *top;
 	*top = new;
 }
