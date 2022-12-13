@@ -16,6 +16,7 @@ void op_push(stack_t **top, unsigned int line_number)
 	if (value == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%d: usage: push integer\n", line_number);
+		free(top);
 		exit(EXIT_FAILURE);
 	}
 
@@ -25,6 +26,7 @@ void op_push(stack_t **top, unsigned int line_number)
 	if (_isdigit(element) == 0)
 	{
 		dprintf(STDERR_FILENO, "L%d: usage: push integer (%d)\n", line_number, element);
+		free(top);
 		exit(EXIT_FAILURE);
 	}
 
