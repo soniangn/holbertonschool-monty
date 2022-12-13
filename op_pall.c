@@ -14,7 +14,7 @@ void op_pall(stack_t **top, unsigned int line_number)
 
     while (temp != NULL)
     {
-        printf("%d", temp->n);
+        printf("%d\n", temp->n);
         temp = temp->next; 
     }
     free(temp);
