@@ -10,7 +10,6 @@
  * @av: args
  * Return: 0 if succes
  */
-
 int main(int ac, char *av[])
 {
 	FILE *fd; /* file descriptor */
