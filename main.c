@@ -41,11 +41,14 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	while (fgets(line, MAX_LEN, fp) != NULL) /* reads line by line */
+	while (fgets(line, MAX_LEN, fp)) /* reads line by line */
 	{
 		value = strtok(line, "\n\t ");
 
-		if (strcmp(value, "push") == 0)
+		if (value == NULL)
+			continue;
+
+		else if (strcmp(value, "push") == 0)
 		{
 			value = strtok(NULL, " ");
 			op_push(head, line_number);
