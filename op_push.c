@@ -22,7 +22,7 @@ void op_push(stack_t **top, unsigned int line_number)
 	value = strtok(value, "$");
 	element = atoi(value);
 
-	if (isdigit(element) == 0)
+	if (_isdigit(element) == 0)
 	{
 		dprintf(STDERR_FILENO, "L%d: usage: push integer (%d)\n", line_number, element);
 		exit(EXIT_FAILURE);
@@ -31,8 +31,7 @@ void op_push(stack_t **top, unsigned int line_number)
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
-		fprintf(stderr, "Error: malloc failed\n");
-		free(new);
+		dprintf(STDERR_FILENO, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 

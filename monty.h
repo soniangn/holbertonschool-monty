@@ -3,6 +3,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+/* GLOBAL VARIABLES */
+extern char *value;
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -36,11 +39,10 @@ typedef struct instruction_s
 /* MACROS */
 #define MAX_LEN 100
 
-/* GLOBAL VARIABLES */
-extern char *value;
 
 /* Functions prototypes */
 int main(int argc, char *argv[]);
+int _isdigit(int c);
 int get_instructions(char *str, stack_t **head, unsigned int line_number);
 void op_push(stack_t **stack, unsigned int line_number);
 void op_pall(stack_t **top, unsigned int line_number);

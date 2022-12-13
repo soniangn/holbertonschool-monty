@@ -15,8 +15,14 @@ int main(int argc, char *argv[])
 	FILE *fp;
 	char line[MAX_LEN];
 	int line_number = 1;
-	/*char *opcode;*/
 	stack_t **head = NULL;
+
+	head = malloc(sizeof(stack_t));
+	if (head == NULL)
+	{
+		dprintf(STDERR_FILENO, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
 
 	/* checks if there are exactly 2 arguments */
 	if (argc != 2)
@@ -35,13 +41,14 @@ int main(int argc, char *argv[])
 
 	while (fgets(line, MAX_LEN, fp) != NULL) /* reads line by line */
 	{
-		value = strtok(line, " /n/t");
+		value = strtok(line, "$ /n/t");
 		if (strcmp(value, "push") == 0)
 		{
 			value = strtok(NULL, " ");
 			op_push(head, line_number);
 		}
-		get_instructions(value, &*head, line_number);
+		else
+			get_instructions(value, &*head, line_number);
 		line_number++;
 	}
 
