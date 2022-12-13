@@ -9,13 +9,13 @@
  * @argv: array of arguments
  * Return: 0
  */
+ char *value;
 int main(int argc, char *argv[])
 {
 	FILE *fp;
 	char line[MAX_LEN];
 	int line_number = 1;
-	char *opcode;
-	char *value;
+	/*char *opcode;*/
 	stack_t **head = NULL;
 
 	/* checks if there are exactly 2 arguments */
@@ -35,13 +35,13 @@ int main(int argc, char *argv[])
 
 	while (fgets(line, MAX_LEN, fp) != NULL) /* reads line by line */
 	{
-		opcode = strtok(line, " /n/t");
-		if (strcmp(opcode, "push") == 0)
+		value = strtok(line, " /n/t");
+		if (strcmp(value, "push") == 0)
 		{
 			value = strtok(NULL, " ");
-			op_push(head, line_number, value);
+			op_push(head, line_number);
 		}
-		get_instructions(opcode, &*head, line_number);
+		get_instructions(value, &*head, line_number);
 		line_number++;
 	}
 

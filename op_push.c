@@ -6,10 +6,9 @@
  * op_push - function that pushes an element to the stack
  * @top: double pointer to the stack
  * @line_number: the line number where the opcode is called
- * @value: value of new node
  * Return: 0
  */
-void op_push(stack_t **top, unsigned int line_number, char *value)
+void op_push(stack_t **top, unsigned int line_number)
 {
 	stack_t *new;
 	int element;
