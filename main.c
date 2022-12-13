@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
 
 	while (fgets(line, MAX_LEN, fp) != NULL) /* reads line by line */
 	{
-		value = strtok(line, "$ /n/t");
+		value = strtok(line, " $/n/t");
 		if (strcmp(value, "push") == 0)
 		{
 			value = strtok(NULL, " ");
