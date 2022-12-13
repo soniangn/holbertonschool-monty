@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
 	if (argc != 2)
 	{
 		dprintf(STDERR_FILENO, "USAGE: monty file\n");
+		free(head);
 		exit(EXIT_FAILURE);
 	}
 
@@ -36,22 +37,27 @@ int main(int argc, char *argv[])
 	if (fp == NULL) /* if the file cannot be opened */
 	{
 		dprintf(STDERR_FILENO, "Error: Can't open file %s\n", argv[1]);
+		free(head);
 		exit(EXIT_FAILURE);
 	}
 
 	while (fgets(line, MAX_LEN, fp) != NULL) /* reads line by line */
 	{
-		value = strtok(line, " $/n/t");
+		value = strtok(line, "\n\t ");
+
 		if (strcmp(value, "push") == 0)
 		{
 			value = strtok(NULL, " ");
 			op_push(head, line_number);
 		}
 		else
+		{
 			get_instructions(value, &*head, line_number);
+		}
 		line_number++;
 	}
 
 	fclose(fp);
+	free(head);
 	return (0);
 }
