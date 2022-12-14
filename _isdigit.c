@@ -1,11 +1,14 @@
 #include "monty.h"
+#include <limits.h>
+#include <stdlib.h>
 #include <ctype.h>
-
+#include <stdio.h>
 /**
- * _isdigit - checks for a digit (0 through 9)
- * @c: character
- * Return: 1 if c is not a digit, 0 otherwise
+ *_isdigit - check the code
+ *@c: the character to check
+ *Return: 1 if c is digit, 0 otherwise
  */
+
 int _isdigit(char *c)
 {
 	int i = 0;

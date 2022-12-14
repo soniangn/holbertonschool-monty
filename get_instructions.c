@@ -14,18 +14,26 @@ int get_instructions(char *str, stack_t **head, unsigned int line_number)
 {
 	instruction_t opcodes[] = {
 		{"pall", op_pall},
+		{"pint", op_pint},
+		{"pop", op_pop},
 		{NULL, NULL}
 	};
 	int i = 0;
 
 	while (opcodes[i].opcode != NULL)
 	{
-		if (strcmp(opcodes[i].opcode, str) == 0)
+		if (strcmp(opcodes[i].opcode, str) > 0)
+		{
+			dprintf(STDERR_FILENO, "L%d: unknown instruction %s\n", line_number, str);
+			exit(EXIT_FAILURE);
+		}
+		else if (strcmp(opcodes[i].opcode, str) == 0)
 		{
 			opcodes[i].f(head, line_number);
 			return (EXIT_SUCCESS);
 		}
-		i++;
+		else
+			i++;
 	}
 
 	dprintf(STDERR_FILENO, "L%i: unknown instruction %s\n", line_number, str);
