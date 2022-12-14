@@ -24,7 +24,8 @@ void op_push(stack_t **top, unsigned int line_number)
 
 	if (_isdigit(value) == 1)
 	{
-	dprintf(STDERR_FILENO, "L%d: usage: push integer %s\n", line_number, value);
+		dprintf(STDERR_FILENO, "L%d: usage: push integer %s\n", line_number, value);
+		free(top);
 		exit(EXIT_FAILURE);
 	}
 	element = atoi(value);
