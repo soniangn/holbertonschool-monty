@@ -45,19 +45,23 @@ int main(int argc, char *argv[])
 	{
 		value = strtok(line, "\n\t ");
 
-		if (line[0] == '\n')
-			continue;
-
-		else if (strcmp(value, "push") == 0)
+		if (line[0] == '\n' && line[1] == '\0')
 		{
-			value = strtok(NULL, " \n\t");
-			op_push(head, line_number);
+			line_number++;
+			continue;
 		}
 		else
-		{
-			get_instructions(value, &*head, line_number);
+		{	
+			if (strcmp(value, "push") == 0)
+			{
+				value = strtok(NULL, " \n\t");
+				op_push(head, line_number);
+			}
+			else
+				get_instructions(value, &*head, line_number);
+			line_number++;
 		}
-		line_number++;
+		
 	}
 
 
