@@ -45,8 +45,8 @@ int main(int argc, char *argv[])
 	{
 		value = strtok(line, "\n\t ");
 
-		if (line == NULL)
-			return (0);
+		if (line[0] == '\n')
+			continue;
 
 		else if (strcmp(value, "push") == 0)
 		{
@@ -59,6 +59,7 @@ int main(int argc, char *argv[])
 		}
 		line_number++;
 	}
+
 
 	fclose(fp);
 	free(head);
