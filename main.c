@@ -43,10 +43,10 @@ int main(int argc, char *argv[])
 
 	while (fgets(line, MAX_LEN, fp) != NULL) /* reads line by line */
 	{
-		value = strtok(line, "$ \n\t");
+		value = strtok(line, " \n\t");
 		if (strcmp(value, "push") == 0)
 		{
-			value = strtok(NULL, " ");
+			value = strtok(NULL, " \n\t");
 			op_push(head, line_number);
 		}
 		else

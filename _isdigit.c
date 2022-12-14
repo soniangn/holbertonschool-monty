@@ -11,9 +11,13 @@
 
 int _isdigit(char *c)
 {
-	while (*c)
+	int i = 0;
+
+	for (; c[i] != '\0'; i++)
 	{
-		if (isdigit(*c++) == 0)
+		if (c[i] == '-')
+			continue;
+		if (isdigit(c[i]) == 0)
 			return (1);
 	}
 	return (0);
