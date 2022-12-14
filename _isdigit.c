@@ -1,5 +1,8 @@
 #include "monty.h"
 #include <limits.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <stdio.h>
 /**
  *_isdigit - check the code
  *@c: the character to check
@@ -8,9 +11,9 @@
 
 int _isdigit(char *c)
 {
-	while (*c++ != '\0')
+	while (*c)
 	{
-		if (!(*c >= '0' && *c <= '9'))
+		if (isdigit(*c++) == 0)
 			return (1);
 	}
 	return (0);
