@@ -29,5 +29,6 @@ int get_instructions(char *str, stack_t **head, unsigned int line_number)
 	}
 
 	dprintf(STDERR_FILENO, "L%i: unknown instruction %s\n", line_number, str);
+	free(head);
 	return (EXIT_FAILURE);
 }

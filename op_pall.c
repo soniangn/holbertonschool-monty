@@ -2,7 +2,7 @@
 
 /**
  * op_pall - function that print all the values on the stack
- * @stack: double pointer to the stack
+ * @top: double pointer to the stack
  * @line_number: the line number where the opcode is called
 */
 void op_pall(stack_t **top, unsigned int line_number)
