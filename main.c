@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
 
 		else if (strcmp(value, "push") == 0)
 		{
-			value = strtok(NULL, " ");
+			value = strtok(NULL, " \n\t");
 			op_push(head, line_number);
 		}
 		else
