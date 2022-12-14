@@ -16,6 +16,7 @@ int get_opcode(char *buf, stack_t **head, unsigned int line_number)
 	instruction_t opcodes[] = {
 		{"push", op_push},
 		{"pall", op_pall},
+		{"pint", op_pint},
 		{NULL, NULL}
 	};
 	int i = 0;

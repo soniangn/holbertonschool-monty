@@ -39,6 +39,7 @@ int get_opcode(char *buf, stack_t **head, unsigned int line_number);
 void op_push(stack_t **top, unsigned int line_number);
 int _isdigit(char *c);
 void op_pall(stack_t **top, unsigned int line_number);
+void op_pint(stack_t **top, unsigned int line_number);
 
 #define MAX_LEN 100
 
