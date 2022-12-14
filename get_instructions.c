@@ -25,10 +25,15 @@ int get_instructions(char *str, stack_t **head, unsigned int line_number)
 		if (strcmp(opcodes[i].opcode, str) == 0)
 		{
 			opcodes[i].f(head, line_number);
-			exit(EXIT_SUCCESS);
+			return (EXIT_SUCCESS);
 		}
-		i++;
+		else if (strcmp(opcodes[i].opcode, str) == 1)
+		{
+			dprintf(STDERR_FILENO, "L%i: unknown instruction %s\n", line_number, str);
+			exit(EXIT_FAILURE);
+		}
+		else
+			i++;
 	}
-	dprintf(STDERR_FILENO, "L%i: unknown instruction %s\n", line_number, str);
-	exit(EXIT_FAILURE);
+	return (0);
 }
