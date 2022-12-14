@@ -8,8 +8,6 @@
  * @line_number: the line number where the opcode is called
  */
 
-#define EXIT_FAILURE 1
-
 void op_pop(stack_t **top, unsigned int line_number)
 {
 	stack_t *tmp = *top;
