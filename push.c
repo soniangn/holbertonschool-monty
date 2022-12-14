@@ -25,12 +25,13 @@ void op_push(stack_t **top, unsigned int line_number)
 	value = strtok(value, "$");
 	element = atoi(value);
 
-	if (isdigit(element) == 0)
+	if (_isdigit(element) == 0)
 	{
 		dprintf(STDERR_FILENO, "L%d: usage: push integer (%d)\n", line_number, element);
 		exit(EXIT_FAILURE);
 	}
-
+	element = element % 10;
+	
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
@@ -40,13 +41,12 @@ void op_push(stack_t **top, unsigned int line_number)
 	}
 
 	new->n = element;
-	new->next = NULL;
 	new->prev = NULL;
+	new->next = *top;
 
 	if ((*top) != NULL)
 	{
 		(*top)->prev = new;
 	}
-	new->next = *top;
 	*top = new;
 }

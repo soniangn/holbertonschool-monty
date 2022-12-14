@@ -10,29 +10,49 @@
  * @av: args
  * Return: 0 if succes
  */
-int main(int ac, char *av[])
-{
-	FILE *fd; /* file descriptor */
-	char *buf; /* line of the file */
-	stack_t **head;
-	char *opcode; /* line who is strtok */
-	int line_number = 1; /* number of the line in the file */
 
-	if (ac != 2) /* if arguments are not 2 */
+char *value;
+
+int main(int argc, char *argv[])
+{
+	FILE *fp;
+	char line[MAX_LEN];
+	int line_number = 1;
+	/*char *opcode;*/
+	stack_t **head = NULL;
+
+	head = malloc(sizeof(stack_t));
+	if (head == NULL)
+	{
+		dprintf(STDERR_FILENO, "Error: malloc failed");
+		exit(EXIT_FAILURE);
+	}
+	/* checks if there are exactly 2 arguments */
+	if (argc != 2)
 	{
 		dprintf(STDERR_FILENO, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 
-	fd = fopen(av[1], "r"); /* open file */
+	fp = fopen(argv[1], "r"); /* opens the file */
 
-	while (fgets(buf, strlen(buf), fd) != NULL) /* read line per line */
+	if (fp == NULL) /* if the file cannot be opened */
+	{dprintf(STDERR_FILENO, "Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
+
+	while (fgets(line, MAX_LEN, fp) != NULL) /* reads line by line */
 	{
-		opcode = strtok(buf, " /n/t"); /* cut the line */
-		/* function who the call the func opcode if strcmp is 0*/
-		get_opcode(opcode, head, line_number);
+		value = strtok(line, "$ /n/t");
+		if (strcmp(value, "push") == 0)
+		{
+			value = strtok(NULL, " ");
+			op_push(head, line_number);
+		}
+		else
+			get_opcode(value, &*head, line_number);
 		line_number++;
 	}
-	fclose(fd); /* close the file */
+	fclose(fp);
 	return (0);
 }
