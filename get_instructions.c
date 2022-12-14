@@ -14,6 +14,7 @@ int get_instructions(char *str, stack_t **head, unsigned int line_number)
 {
 	instruction_t opcodes[] = {
 		{"pall", op_pall},
+		{"pint", op_pint},
 		{NULL, NULL}
 	};
 	int i = 0;

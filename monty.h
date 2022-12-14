@@ -46,5 +46,6 @@ int _isdigit(char *c);
 int get_instructions(char *str, stack_t **head, unsigned int line_number);
 void op_push(stack_t **stack, unsigned int line_number);
 void op_pall(stack_t **top, unsigned int line_number);
+void op_pint(stack_t **top, unsigned int line_number);
 
 #endif /*MONTY_H*/
