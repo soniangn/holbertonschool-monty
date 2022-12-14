@@ -15,5 +15,5 @@ void op_pint(stack_t **top, unsigned int line_number)
 		free(top);
 		exit(EXIT_FAILURE);
 	}
-	printf("%d\n", (*top)->n);
+	fprintf(stdout, "%d\n", (*top)->n);
 }
