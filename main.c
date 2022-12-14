@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 		value = strtok(line, "\n\t ");
 
 		if (value == NULL)
-			continue;
+			return (0);
 
 		else if (strcmp(value, "push") == 0)
 		{
