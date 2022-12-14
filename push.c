@@ -22,16 +22,12 @@ void op_push(stack_t **top, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	value = strtok(value, "$");
-	element = atoi(value);
-
-	if (_isdigit(element) == 0)
+	if (_isdigit(value) == 1)
 	{
-		dprintf(STDERR_FILENO, "L%d: usage: push integer (%d)\n", line_number, element);
+	dprintf(STDERR_FILENO, "L%d: usage: push integer %s\n", line_number, value);
 		exit(EXIT_FAILURE);
 	}
-	element = element % 10;
-	
+	element = atoi(value);
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
