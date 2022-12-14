@@ -17,7 +17,7 @@ void op_push(stack_t **top, unsigned int line_number)
 
 	if (value == NULL)
 	{
-		dprintf(STDERR_FILENO, "L%d: usage: push integer here\n", line_number);
+		dprintf(STDERR_FILENO, "L%d: usage: push integer\n", line_number);
 		free(top);
 		exit(EXIT_FAILURE);
 	}
