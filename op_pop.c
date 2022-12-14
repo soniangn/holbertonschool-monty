@@ -7,13 +7,16 @@
  * @top: double pointer to the stack
  * @line_number: the line number where the opcode is called
  */
+
+#define EXIT_FAILURE 1
+
 void op_pop(stack_t **top, unsigned int line_number)
 {
 	stack_t *tmp = *top;
 
 	if (*top == NULL)
 	{
-		dprintf(STDERR_FILENO, "L%d: can't pint, stack empty\n", line_number);
+		dprintf(STDERR_FILENO, "L%d: can't pop an stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	*top = (*top)->next;
