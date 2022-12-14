@@ -8,6 +8,8 @@
  * @line_number: the line number where the opcode is called
  * Return: 0
  */
+char *value;
+
 void op_push(stack_t **top, unsigned int line_number)
 {
 	stack_t *new;
@@ -20,31 +22,29 @@ void op_push(stack_t **top, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	value = strtok(value, "$");
-	element = atoi(value);
-
-	if (_isdigit(element) == 0)
+	/*if (_isdigit(value) == 1)
 	{
-		dprintf(STDERR_FILENO, "L%d: usage: push integer (%d)\n", line_number, element);
+		dprintf(STDERR_FILENO, "L%d: usage: push integer %s\n", line_number, value);
 		free(top);
 		exit(EXIT_FAILURE);
-	}
+	}*/
 
+	element = atoi(value);
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
-		dprintf(STDERR_FILENO, "Error: malloc failed\n");
+		fprintf(stderr, "Error: malloc failed\n");
+		free(new);
 		exit(EXIT_FAILURE);
 	}
 
 	new->n = element;
-	new->next = NULL;
 	new->prev = NULL;
+	new->next = *top;
 
 	if ((*top) != NULL)
 	{
 		(*top)->prev = new;
 	}
-	new->next = *top;
 	*top = new;
 }

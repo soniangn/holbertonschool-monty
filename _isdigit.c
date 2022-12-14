@@ -1,13 +1,17 @@
 #include "monty.h"
+#include <ctype.h>
+
 /**
  * _isdigit - checks for a digit (0 through 9)
  * @c: character
- * Return: 1 if c is a digit, 0 otherwise
+ * Return: 1 if c is not a digit, 0 otherwise
  */
-int _isdigit(int c)
+int _isdigit(char *c)
 {
-	if (c >= 0 && c <= 9)
-		return (1);
-	else
-		return (0);
+	while (*c++ != '\0')
+	{
+		if (isdigit(*c) == 0)
+			return (1);
+	}
+	return (0);
 }
