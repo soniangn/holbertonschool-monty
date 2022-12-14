@@ -22,18 +22,18 @@ int get_instructions(char *str, stack_t **head, unsigned int line_number)
 
 	while (opcodes[i].opcode != NULL)
 	{
-		if (strcmp(opcodes[i].opcode, str) == 0)
+		if (strcmp(opcodes[i].opcode, str) > 0)
+		{
+			dprintf(STDERR_FILENO, "L%d: unknown instruction %s\n", line_number, str);
+			exit(EXIT_FAILURE);
+		}
+		else if (strcmp(opcodes[i].opcode, str) == 0)
 		{
 			opcodes[i].f(head, line_number);
 			return (EXIT_SUCCESS);
 		}
-		else if (strcmp(opcodes[i].opcode, str) < 0)
-		{
-			dprintf(STDERR_FILENO, "L%i: unknown instruction %s\n", line_number, str);
-			exit(EXIT_FAILURE);
-		}
 		else
 			i++;
 	}
-	return (0);
+	return (EXIT_SUCCESS);
 }
