@@ -14,7 +14,7 @@ void op_pop(stack_t **top, unsigned int line_number)
 
 	if (*top == NULL)
 	{
-		dprintf(STDERR_FILENO, "L%d: can't pop an stack empty\n", line_number);
+		dprintf(STDERR_FILENO, "L%d: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	*top = (*top)->next;
