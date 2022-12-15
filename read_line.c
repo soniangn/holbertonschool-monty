@@ -34,4 +34,5 @@ void read_line(FILE *fp)
 			line_number++;
 		}
 	}
+	whilefree(&top);
 }
