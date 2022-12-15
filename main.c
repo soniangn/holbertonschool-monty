@@ -17,15 +17,7 @@ int main(int argc, char *argv[])
 	char *str;
 	char line[MAX_LEN];
 	int line_number = 1;
-	stack_t **top = NULL;
-
-	top = malloc(sizeof(stack_t));
-	if (top == NULL)
-	{
-		free(top);
-		dprintf(STDERR_FILENO, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
-	}
+	stack_t *top = NULL;
 
 	/* checks if there are exactly 2 arguments */
 	if (argc != 2)
@@ -55,11 +47,11 @@ int main(int argc, char *argv[])
 		}
 		else
 		{
-			get_instructions(str, &*top, line_number);
+			get_instructions(str, &top, line_number);
 			line_number++;
 		}
 	}
 	fclose(fp);
-	free(top);
+	whilefree(&top);
 	return (0);
 }
