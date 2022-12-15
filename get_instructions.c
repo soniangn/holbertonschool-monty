@@ -18,6 +18,7 @@ int get_instructions(char *str, stack_t **top, unsigned int line_number)
 		{"pint", op_pint},
 		{"pop", op_pop},
 		{"nop", op_nop},
+		{"swap", op_swap},
 		{NULL, NULL}
 	};
 	int i = 0;
