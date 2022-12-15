@@ -14,7 +14,6 @@ char *value;
 int main(int argc, char *argv[])
 {
 	FILE *fp;
-	char *str;
 	char line[MAX_LEN];
 	int line_number = 1;
 	stack_t *top = NULL;
@@ -38,7 +37,7 @@ int main(int argc, char *argv[])
 
 	while (fgets(line, MAX_LEN, fp)) /* reads line by line */
 	{
-		str = strtok(line, "\n\t ");
+		value = strtok(line, "\n\t ");
 
 		if (line[0] == '\n' && line[1] == '\0')
 		{
@@ -47,7 +46,7 @@ int main(int argc, char *argv[])
 		}
 		else
 		{
-			get_instructions(str, &top, line_number);
+			get_instructions(value, &top, line_number);
 			line_number++;
 		}
 	}
