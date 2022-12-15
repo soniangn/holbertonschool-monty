@@ -12,9 +12,10 @@ char *value;
 
 void op_push(stack_t **top, unsigned int line_number)
 {
-	stack_t *new;
-	int element;
+	stack_t *new = NULL;
+	int element = 0;
 
+	value = strtok(NULL, " \n\t");
 	if (value == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%d: usage: push integer\n", line_number);
@@ -24,7 +25,7 @@ void op_push(stack_t **top, unsigned int line_number)
 
 	if (_isdigit(value) == 1)
 	{
-		dprintf(STDERR_FILENO, "L%d: usage: push integer\n", line_number);
+		dprintf(STDERR_FILENO, "L%d: usage: push integer %s\n", line_number, value);
 		free(top);
 		exit(EXIT_FAILURE);
 	}
@@ -33,17 +34,16 @@ void op_push(stack_t **top, unsigned int line_number)
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
+		free(new);
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 
 	new->n = element;
-	new->prev = NULL;
-	new->next = *top;
-
-	if ((*top) != NULL)
-	{
+	if (*top)
 		(*top)->prev = new;
-	}
+	new->next = *top;
+	new->prev = NULL;
+
 	*top = new;
 }

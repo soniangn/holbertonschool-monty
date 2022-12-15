@@ -13,6 +13,7 @@
 int get_instructions(char *str, stack_t **head, unsigned int line_number)
 {
 	instruction_t opcodes[] = {
+		{"push", op_push},
 		{"pall", op_pall},
 		{"pint", op_pint},
 		{"pop", op_pop},

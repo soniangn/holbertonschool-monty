@@ -21,6 +21,7 @@ int main(int argc, char *argv[])
 	head = malloc(sizeof(stack_t));
 	if (head == NULL)
 	{
+		free(head);
 		dprintf(STDERR_FILENO, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
@@ -53,13 +54,7 @@ int main(int argc, char *argv[])
 		}
 		else
 		{
-			if (strcmp(value, "push") == 0)
-			{
-				value = strtok(NULL, " \n\t");
-				op_push(head, line_number);
-			}
-			else
-				get_instructions(value, &*head, line_number);
+			get_instructions(value, &*head, line_number);
 			line_number++;
 		}
 	}
