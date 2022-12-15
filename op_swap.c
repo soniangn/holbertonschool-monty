@@ -20,7 +20,7 @@ void op_swap(stack_t **top, unsigned int line_number)
         whilefree(top);
 		exit(EXIT_FAILURE);
 	}
-    
+
     tmp = (*top)->next;
 	element = tmp->n;
     tmp->n = (*top)->n;
