@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 {
 	FILE *fp;
 	stack_t *top = NULL;
-	
+
 	/* checks if there are exactly 2 arguments */
 	if (argc != 2)
 	{
@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 	}
 
 	read_line(fp);
-	
+
 	fclose(fp);
 	whilefree(&top);
 	return (0);

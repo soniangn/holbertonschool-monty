@@ -2,9 +2,10 @@
 #include <string.h>
 
 /**
- * op_pint - function that print the first node
- * @top: double pointer to the stack
- * @line_number: the line number where the opcode is called
+ * read_line - function that reads line by line and
+				call the opcode function
+ * @fp: open file
+ * Return: 0
  */
 
 void read_line(FILE *fp)
@@ -12,7 +13,7 @@ void read_line(FILE *fp)
 	char line[MAX_LEN];
 	stack_t *top = NULL;
 	int line_number = 1;
-	
+
 	while (fgets(line, MAX_LEN, fp)) /* reads line by line */
 	{
 		value = strtok(line, "\n\t ");
@@ -22,7 +23,7 @@ void read_line(FILE *fp)
 			line_number++;
 			continue;
 		}
-		
+
 		if (line[0] == '\n' && line[1] == '\0')
 		{
 			line_number++;
@@ -34,5 +35,6 @@ void read_line(FILE *fp)
 			line_number++;
 		}
 	}
+
 	whilefree(&top);
 }

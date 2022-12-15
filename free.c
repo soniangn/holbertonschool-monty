@@ -1,5 +1,11 @@
 #include "monty.h"
 
+/**
+ * whilefree - function that frees
+ * @top: double pointer to the linked list
+ * Return: 0
+ */
+
 void whilefree(stack_t **top)
 {
 	stack_t *temp = NULL;
