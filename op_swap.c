@@ -6,6 +6,7 @@
  * op_swap - function that swaps the top two elements of the stack
  * @top: double pointer to the stack
  * @line_number: the line number where the opcode is called
+ * Return: 0
  */
 
 void op_swap(stack_t **top, unsigned int line_number)
@@ -20,7 +21,7 @@ void op_swap(stack_t **top, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	tmp = (*top)->next;
+    tmp = (*top)->next;
 	element = tmp->n;
     tmp->n = (*top)->n;
     (*top)->n = element;
