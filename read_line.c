@@ -3,7 +3,7 @@
 
 /**
  * read_line - function that reads line by line and
-				call the opcode function
+ *				call the opcode function
  * @fp: open file
  * Return: 0
  */
