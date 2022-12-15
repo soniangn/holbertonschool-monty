@@ -9,7 +9,8 @@
  * @argv: array of arguments
  * Return: 0
  */
- char *value;
+char *value;
+
 int main(int argc, char *argv[])
 {
 	FILE *fp;
@@ -20,6 +21,7 @@ int main(int argc, char *argv[])
 	head = malloc(sizeof(stack_t));
 	if (head == NULL)
 	{
+		free(head);
 		dprintf(STDERR_FILENO, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
@@ -51,17 +53,10 @@ int main(int argc, char *argv[])
 			continue;
 		}
 		else
-		{	
-			if (strcmp(value, "push") == 0)
-			{
-				value = strtok(NULL, " \n\t");
-				op_push(head, line_number);
-			}
-			else
-				get_instructions(value, &*head, line_number);
+		{
+			get_instructions(value, &*head, line_number);
 			line_number++;
 		}
-		
 	}
 	fclose(fp);
 

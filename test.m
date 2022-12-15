@@ -1,9 +1,4 @@
-pall
-push 1
-pall
-push 2
-pall
-push 3
-pall
-push 4
+push 98
+push 402
+nop Holberton
 pall
