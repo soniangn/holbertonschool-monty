@@ -7,7 +7,7 @@
  */
 void op_pall(stack_t **top, unsigned int line_number)
 {
-	stack_t *temp;
+	stack_t *temp = NULL;
 	(void)line_number;
 
 	temp = *top;

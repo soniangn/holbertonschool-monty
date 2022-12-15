@@ -1,4 +1,4 @@
-push 98
-push 402
-nop Holberton
+push 1
+push 2
+push 3
 pall
