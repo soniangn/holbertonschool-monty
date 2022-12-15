@@ -14,23 +14,16 @@ char *value;
 int main(int argc, char *argv[])
 {
 	FILE *fp;
+	char *str;
 	char line[MAX_LEN];
 	int line_number = 1;
-	stack_t **head = NULL;
-
-	head = malloc(sizeof(stack_t));
-	if (head == NULL)
-	{
-		free(head);
-		dprintf(STDERR_FILENO, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
-	}
+	stack_t *top = NULL;
 
 	/* checks if there are exactly 2 arguments */
 	if (argc != 2)
 	{
 		dprintf(STDERR_FILENO, "USAGE: monty file\n");
-		free(head);
+		free(top);
 		exit(EXIT_FAILURE);
 	}
 
@@ -39,13 +32,13 @@ int main(int argc, char *argv[])
 	if (fp == NULL) /* if the file cannot be opened */
 	{
 		dprintf(STDERR_FILENO, "Error: Can't open file %s\n", argv[1]);
-		free(head);
+		free(top);
 		exit(EXIT_FAILURE);
 	}
 
 	while (fgets(line, MAX_LEN, fp)) /* reads line by line */
 	{
-		value = strtok(line, "\n\t ");
+		str = strtok(line, "\n\t ");
 
 		if (line[0] == '\n' && line[1] == '\0')
 		{
@@ -54,11 +47,11 @@ int main(int argc, char *argv[])
 		}
 		else
 		{
-			get_instructions(value, &*head, line_number);
+			get_instructions(str, &top, line_number);
 			line_number++;
 		}
 	}
 	fclose(fp);
-
+	whilefree(&top);
 	return (0);
 }

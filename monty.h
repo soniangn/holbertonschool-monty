@@ -49,4 +49,5 @@ void op_pall(stack_t **top, unsigned int line_number);
 void op_pint(stack_t **top, unsigned int line_number);
 void op_pop(stack_t **top, unsigned int line_number);
 void op_nop(stack_t **top, unsigned int line_number);
+void whilefree(stack_t **top);
 #endif /*MONTY_H*/

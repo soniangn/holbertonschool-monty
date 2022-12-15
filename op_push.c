@@ -34,8 +34,8 @@ void op_push(stack_t **top, unsigned int line_number)
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
-		free(new);
 		fprintf(stderr, "Error: malloc failed\n");
+		free(new);
 		exit(EXIT_FAILURE);
 	}
 

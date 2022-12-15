@@ -5,12 +5,12 @@
  * get_instructions - selects the correct function to
  *                     perform the opcode passed
  * @str: the string to check
- * @head: double pointer to the linked list
+ * @top: double pointer to the linked list
  * @line_number: line number of file
  * Return: success or failure
  *
  */
-int get_instructions(char *str, stack_t **head, unsigned int line_number)
+int get_instructions(char *str, stack_t **top, unsigned int line_number)
 {
 	instruction_t opcodes[] = {
 		{"push", op_push},
@@ -26,13 +26,13 @@ int get_instructions(char *str, stack_t **head, unsigned int line_number)
 	{
 		if (strcmp(opcodes[i].opcode, str) == 0)
 		{
-			opcodes[i].f(head, line_number);
+			opcodes[i].f(top, line_number);
 			return (EXIT_SUCCESS);
 		}
 		else
 			i++;
 	}
 	dprintf(STDERR_FILENO, "L%i: unknown instruction %s\n", line_number, str);
-	free(head);
+	free(top);
 	exit(EXIT_FAILURE);
 }
