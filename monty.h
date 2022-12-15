@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+
 /* GLOBAL VARIABLES */
 extern char *value;
 
@@ -39,7 +40,6 @@ typedef struct instruction_s
 /* MACROS */
 #define MAX_LEN 100
 
-
 /* Functions prototypes */
 int main(int argc, char *argv[]);
 int _isdigit(char *c);
@@ -49,5 +49,6 @@ void op_pall(stack_t **top, unsigned int line_number);
 void op_pint(stack_t **top, unsigned int line_number);
 void op_pop(stack_t **top, unsigned int line_number);
 void op_nop(stack_t **top, unsigned int line_number);
+void op_swap(stack_t **top, unsigned int line_number);
 void whilefree(stack_t **top);
 #endif /*MONTY_H*/
