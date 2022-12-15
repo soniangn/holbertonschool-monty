@@ -14,10 +14,8 @@ char *value;
 int main(int argc, char *argv[])
 {
 	FILE *fp;
-	char line[MAX_LEN];
-	int line_number = 1;
 	stack_t *top = NULL;
-
+	
 	/* checks if there are exactly 2 arguments */
 	if (argc != 2)
 	{
@@ -35,27 +33,8 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	while (fgets(line, MAX_LEN, fp)) /* reads line by line */
-	{
-		value = strtok(line, "\n\t ");
-
-		if (value == NULL)
-		{
-			line_number++;
-			continue;
-		}
-		
-		if (line[0] == '\n' && line[1] == '\0')
-		{
-			line_number++;
-			continue;
-		}
-		else
-		{
-			get_instructions(value, &top, line_number);
-			line_number++;
-		}
-	}
+	read_line(fp);
+	
 	fclose(fp);
 	whilefree(&top);
 	return (0);
