@@ -38,6 +38,12 @@ int main(int argc, char *argv[])
 	{
 		value = strtok(line, "\n\t ");
 
+		if (value == NULL)
+		{
+			line_number++;
+			continue;
+		}
+		
 		if (line[0] == '\n' && line[1] == '\0')
 		{
 			line_number++;
