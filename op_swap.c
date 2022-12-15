@@ -12,17 +12,18 @@
 void op_swap(stack_t **top, unsigned int line_number)
 {
 	stack_t *tmp;
-    int element;
+	int element;
 
 	if (*top == NULL || (*top)->next == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%d: can't swap, stack too short\n", line_number);
-        whilefree(top);
+		whilefree(top);
 		exit(EXIT_FAILURE);
 	}
 
-    tmp = (*top)->next;
+	tmp = (*top)->next;
 	element = tmp->n;
-    tmp->n = (*top)->n;
-    (*top)->n = element;
+	tmp->n = (*top)->n;
+	(*top)->n = element;
 }
+
