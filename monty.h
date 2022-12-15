@@ -42,6 +42,7 @@ typedef struct instruction_s
 
 /* Functions prototypes */
 int main(int argc, char *argv[]);
+void read_line(FILE *fp);
 int _isdigit(char *c);
 int get_instructions(char *str, stack_t **head, unsigned int line_number);
 void op_push(stack_t **stack, unsigned int line_number);
