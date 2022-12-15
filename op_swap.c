@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include <stdio.h>
 /**
- * op_swap - function that swaps the top two elements of the stack
+ * op_swap - function that swaps the top 2 elements of the stack
  * @top: double pointer to the stack
  * @line_number: the line number where the opcode is called
  * Return: 0
