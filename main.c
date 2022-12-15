@@ -34,7 +34,6 @@ int main(int argc, char *argv[])
 		free(top);
 		exit(EXIT_FAILURE);
 	}
-
 	while (fgets(line, MAX_LEN, fp)) /* reads line by line */
 	{
 		value = strtok(line, "\n\t ");
