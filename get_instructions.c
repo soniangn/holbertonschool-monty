@@ -33,6 +33,5 @@ int get_instructions(char *str, stack_t **top, unsigned int line_number)
 			i++;
 	}
 	dprintf(STDERR_FILENO, "L%i: unknown instruction %s\n", line_number, str);
-	whilefree(top);
 	exit(EXIT_FAILURE);
 }
