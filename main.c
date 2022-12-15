@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 	if (argc != 2)
 	{
 		dprintf(STDERR_FILENO, "USAGE: monty file\n");
-		free(top);
+		whilefree(&top);
 		exit(EXIT_FAILURE);
 	}
 
@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 	if (fp == NULL) /* if the file cannot be opened */
 	{
 		dprintf(STDERR_FILENO, "Error: Can't open file %s\n", argv[1]);
-		free(top);
+		whilefree(&top);
 		exit(EXIT_FAILURE);
 	}
 	while (fgets(line, MAX_LEN, fp)) /* reads line by line */
