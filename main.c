@@ -9,7 +9,8 @@
  * @argv: array of arguments
  * Return: 0
  */
- char *value;
+char *value;
+
 int main(int argc, char *argv[])
 {
 	FILE *fp;
@@ -51,7 +52,7 @@ int main(int argc, char *argv[])
 			continue;
 		}
 		else
-		{	
+		{
 			if (strcmp(value, "push") == 0)
 			{
 				value = strtok(NULL, " \n\t");
@@ -61,7 +62,6 @@ int main(int argc, char *argv[])
 				get_instructions(value, &*head, line_number);
 			line_number++;
 		}
-		
 	}
 	fclose(fp);
 	free(head);
