@@ -19,13 +19,14 @@ int get_instructions(char *str, stack_t **top, unsigned int line_number)
 		{"pop", op_pop},
 		{"nop", op_nop},
 		{"swap", op_swap},
+		{"sub", op_sub},
 		{NULL, NULL}
 	};
 	int i = 0;
 
 	while (opcodes[i].opcode != NULL)
 	{
-		if (strcmp(opcodes[i].opcode, str) == 0)
+		if (strncmp(opcodes[i].opcode, str, 2) == 0)
 		{
 			opcodes[i].f(top, line_number);
 			return (EXIT_SUCCESS);
