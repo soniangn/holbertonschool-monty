@@ -1,10 +1,9 @@
 #include "monty.h"
 
 /**
- * whilefree - free the double linked lists
- * @top: double linked list
+ * whilefree - function that frees
+ * @top: double pointer to the linked list
  */
-
 void whilefree(stack_t **top)
 {
 	stack_t *temp = NULL;
