@@ -26,7 +26,7 @@ int get_instructions(char *str, stack_t **top, unsigned int line_number)
 
 	while (opcodes[i].opcode != NULL)
 	{
-		if (strncmp(opcodes[i].opcode, str, 2) == 0)
+		if (strncmp(opcodes[i].opcode, str, 5) == 0)
 		{
 			opcodes[i].f(top, line_number);
 			return (EXIT_SUCCESS);
