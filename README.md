@@ -68,6 +68,8 @@ Our program `monty` was developped with:
 |    add    |   Adds the top two elements of the stack     |
 |   swap   | Swaps the top two elements of the stack |
 |    nope   | Doesn't do anything |
+|   sub  | Subtracts the top element from the second top element of the stack |
+|    div   | Divides the second top element by the top element of the stack |
 
 ## Usage 📖
 
@@ -95,7 +97,6 @@ $ gcc -Wall -Werror -Wextra -pedantic *.c -o monty
 Below are presented examples of `monty` usage.
 
 
-
 ## Libraries used 📔
 
 `stdio.h` | `unistd.h` | `string.h` | `stdlib.h` | `ctype.h` | `limits.h` 
@@ -108,16 +109,19 @@ The projects include 12 files as follows:
 |----------|-----------------------------------------------|
 |  main.c     |  Entry point that  |
 |  monty.h     |  Header files, containing all functions prototypes as well as the librairies used |
-|   _isdigit.c   |       |
-|   free.c  |      |
-|   get_instructions.c     |        |
-|    read_line.c  |   |
-|  op_nop.c    |  |
-|  op_pall.c     |  |
-|    op_pint.c   |   |
-|    op_pop.c   |  |
-|    op_push.c   |   |
-|    op_swap.c   |   |
+|   _isdigit.c   | Checks if the character is a digit      |
+|   free.c  |  Function that frees    |
+|   get_instructions.c     |    Selects the correct function to perform the opcode passed    |
+|    read_line.c  | Function that reads line by line and call the opcode function  |
+|  op_nop.c    | Function that doesn't do anything |
+|  op_pall.c     | Function that prints all the values on the stack |
+|    op_pint.c   | Function that prints the value at the top of the stack |
+|    op_pop.c   | Function that removes the top element of the stack |
+|    op_push.c   |  Function that pushes an element to the stack |
+|    op_swap.c   |  Function that swaps the top two elements of the stack |
+|    op_add.c   |  Function that adds the top two elements of the stack |
+|    op_sub.c   |  Function that subtracts the top element from the second top element of the stack |
+|    op_div.c   |  Function that divides the second top element by the top element of the stack |
 
 
 ## Authors ✒️
