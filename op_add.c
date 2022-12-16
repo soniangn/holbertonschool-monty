@@ -12,7 +12,6 @@
 
 void op_add(stack_t **top, unsigned int line_number)
 {
-	(void)line_number;
 	int num1 = 0;
 	int num2 = 0;
 	int result = 0;
@@ -35,10 +34,11 @@ void op_add(stack_t **top, unsigned int line_number)
 	num2 = (*top)->n;
 
 	result = num1 + num2;
-
 	(*top)->n = result;
 
 	temp = *top;
+
+	free((*top)->prev);
 
 	while (temp != NULL)
 	{
