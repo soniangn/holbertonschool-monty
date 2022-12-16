@@ -18,14 +18,7 @@ void op_mul(stack_t **top, unsigned int line_number)
 
 	if (*top == NULL || (*top)->next == NULL)
 	{
-		dprintf(STDERR_FILENO, "L%d: can't div, stack too short\n", line_number);
-		whilefree(top);
-		exit(EXIT_FAILURE);
-	}
-
-    if ((*top)->n == 0)
-	{
-		dprintf(STDERR_FILENO, "L%d: division by zero\n", line_number);
+		dprintf(STDERR_FILENO, "L%d: can't mul, stack too short\n", line_number);
 		whilefree(top);
 		exit(EXIT_FAILURE);
 	}
