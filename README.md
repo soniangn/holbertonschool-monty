@@ -30,7 +30,6 @@ Our program `monty` was developped with:
 |    add    |   Adds the top two elements of the stack     |
 |   swap   | Swaps the top two elements of the stack |
 |    nope   | Doesn't do anything |
-|       |   |
 
 ## Usage 📖
 
@@ -57,24 +56,30 @@ $ gcc -Wall -Werror -Wextra -pedantic *.c -o monty
 
 Below are presented examples of `monty` usage.
 
+
+
 ## Libraries used 📔
 
 `stdio.h` | `unistd.h` | `string.h` | `stdlib.h` | `ctype.h` | `limits.h` 
 
 ## Project Files Description 📌
 
-The projects include 8 files as follows: 
+The projects include 12 files as follows: 
 
 | File | Description                                     |
 |----------|-----------------------------------------------|
 |  main.c     |  Entry point that  |
 |  monty.h     |  Header files, containing all functions prototypes as well as the librairies used |
-|      |       |
-|     |      |
-|        |        |
-|      |  |
-|       |  |
-|       |   |
+|   _isdigit.c   |       |
+|   free.c  |      |
+|   get_instructions.c     |        |
+|    read_line.c  |   |
+|  op_nop.c    |  |
+|  op_pall.c     |  |
+|    op_pint.c   |   |
+|    op_pop.c   |  |
+|    op_push.c   |   |
+|    op_swap.c   |   |
 
 
 ## Authors ✒️
