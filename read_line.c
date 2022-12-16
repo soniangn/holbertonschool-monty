@@ -23,7 +23,13 @@ void read_line(FILE *fp)
 			line_number++;
 			continue;
 		}
-
+		
+		if (value[0] == '#')
+		{
+			line_number++;
+			continue;
+		}
+		
 		if (line[0] == '\n' && line[1] == '\0')
 		{
 			line_number++;
