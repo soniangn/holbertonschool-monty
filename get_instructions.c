@@ -20,6 +20,7 @@ int get_instructions(char *str, stack_t **top, unsigned int line_number)
 		{"nop", op_nop},
 		{"swap", op_swap},
 		{"sub", op_sub},
+		{"div", op_div},
 		{NULL, NULL}
 	};
 	int i = 0;
