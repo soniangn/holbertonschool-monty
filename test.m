@@ -1,4 +1,4 @@
 push 98
 push 402
-div
+mul
 pall
