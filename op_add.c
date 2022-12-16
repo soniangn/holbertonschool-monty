@@ -18,10 +18,15 @@ void op_add(stack_t **top, unsigned int line_number)
 	int result = 0;
 	stack_t *temp = NULL;
 
+	if (*top == NULL)
+	{
+		dprintf(STDERR_FILENO, "L%d: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
 	if ((*top)->next == NULL)
 	{
-		free(top);
-		dprintf(STDERR_FILENO, "L%d: can't add, stack too short", line_number);
+		dprintf(STDERR_FILENO, "L%d: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
