@@ -1,5 +1,4 @@
-push 4
-push 2
-push 10
+push 98
+push 402
 div
 pall
