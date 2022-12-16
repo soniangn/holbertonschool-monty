@@ -54,6 +54,7 @@ void op_swap(stack_t **top, unsigned int line_number);
 void op_sub(stack_t **top, unsigned int line_number);
 void op_div(stack_t **top, unsigned int line_number);
 void op_mul(stack_t **top, unsigned int line_number);
+void op_mod(stack_t **top, unsigned int line_number);
 void whilefree(stack_t **top);
 void op_add(stack_t **top, unsigned int line_number);
 #endif /*MONTY_H*/
