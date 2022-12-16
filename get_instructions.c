@@ -21,6 +21,7 @@ int get_instructions(char *str, stack_t **top, unsigned int line_number)
 		{"swap", op_swap},
 		{"sub", op_sub},
 		{"div", op_div},
+		{"mul", op_mul},
 		{NULL, NULL}
 	};
 	int i = 0;
