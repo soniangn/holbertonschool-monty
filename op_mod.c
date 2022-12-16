@@ -23,6 +23,13 @@ void op_mod(stack_t **top, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
+    if ((*top)->n == 0)
+	{
+		dprintf(STDERR_FILENO, "L%d: division by zero\n", line_number);
+		whilefree(top);
+		exit(EXIT_FAILURE);
+	}
+
     tmp = (*top)->next;
 	element1 = (*top)->n;
     element2 = tmp->n;
