@@ -14,7 +14,7 @@ void op_mul(stack_t **top, unsigned int line_number)
 	stack_t *tmp;
 	int element1, element2, mul;
 
-    value = strtok(NULL, " \n\t");
+	value = strtok(NULL, " \n\t");
 
 	if (*top == NULL || (*top)->next == NULL)
 	{
@@ -23,12 +23,12 @@ void op_mul(stack_t **top, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-    tmp = (*top)->next;
+	tmp = (*top)->next;
 	element1 = (*top)->n;
-    element2 = tmp->n;
-    mul = element1 * element2;
+	element2 = tmp->n;
+	mul = element1 * element2;
 
-    (*top)->n = mul;
-    (*top)->next = tmp->next;
-    free(tmp);
+	(*top)->n = mul;
+	(*top)->next = tmp->next;
+	free(tmp);
 }

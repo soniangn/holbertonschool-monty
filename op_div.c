@@ -14,7 +14,7 @@ void op_div(stack_t **top, unsigned int line_number)
 	stack_t *tmp;
 	int element1, element2, div;
 
-    value = strtok(NULL, " \n\t");
+	value = strtok(NULL, " \n\t");
 
 	if (*top == NULL || (*top)->next == NULL)
 	{
@@ -23,22 +23,22 @@ void op_div(stack_t **top, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-    if ((*top)->n == 0)
+	if ((*top)->n == 0)
 	{
 		dprintf(STDERR_FILENO, "L%d: division by zero\n", line_number);
 		whilefree(top);
 		exit(EXIT_FAILURE);
 	}
 
-    if ((*top != NULL) || value != NULL)
-	{   
-        tmp = (*top)->next;
-	    element1 = (*top)->n;
-        element2 = tmp->n;
-        div = element1 / element2;
+	if ((*top != NULL) || value != NULL)
+	{
+		tmp = (*top)->next;
+		element1 = (*top)->n;
+		element2 = tmp->n;
+		div = element1 / element2;
 
-        (*top)->n = div;
-        (*top)->next = tmp->next;
-        free(tmp);
-    }
+		(*top)->n = div;
+		(*top)->next = tmp->next;
+		free(tmp);
+	}
 }
