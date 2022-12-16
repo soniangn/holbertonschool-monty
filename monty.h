@@ -45,6 +45,7 @@ int main(int argc, char *argv[]);
 void read_line(FILE *fp);
 int _isdigit(char *c);
 int get_instructions(char *str, stack_t **head, unsigned int line_number);
+void whilefree(stack_t **top);
 void op_push(stack_t **stack, unsigned int line_number);
 void op_pall(stack_t **top, unsigned int line_number);
 void op_pint(stack_t **top, unsigned int line_number);
@@ -55,6 +56,6 @@ void op_sub(stack_t **top, unsigned int line_number);
 void op_div(stack_t **top, unsigned int line_number);
 void op_mul(stack_t **top, unsigned int line_number);
 void op_mod(stack_t **top, unsigned int line_number);
-void whilefree(stack_t **top);
 void op_add(stack_t **top, unsigned int line_number);
+void op_pchar(stack_t **top, unsigned int line_number);
 #endif /*MONTY_H*/
