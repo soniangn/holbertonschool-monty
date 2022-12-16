@@ -14,8 +14,6 @@ void op_div(stack_t **top, unsigned int line_number)
 	stack_t *tmp;
 	int element1, element2, div;
 
-	value = strtok(NULL, " \n\t");
-
 	if (*top == NULL || (*top)->next == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%d: can't div, stack too short\n", line_number);
@@ -30,15 +28,12 @@ void op_div(stack_t **top, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	if ((*top != NULL) || value != NULL)
-	{
-		tmp = (*top)->next;
-		element1 = (*top)->n;
-		element2 = tmp->n;
-		div = element1 / element2;
+	tmp = (*top)->next;
+	element1 = (*top)->n;
+	element2 = tmp->n;
+	div = element2 / element1;
 
-		(*top)->n = div;
-		(*top)->next = tmp->next;
-		free(tmp);
-	}
+	(*top)->n = div;
+	(*top)->next = tmp->next;
+	free(tmp);
 }
