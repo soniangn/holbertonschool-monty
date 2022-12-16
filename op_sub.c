@@ -2,8 +2,8 @@
 #include <unistd.h>
 
 /**
- * op_sub - function that subtracts the top element 
-            of the stack from the second top element of the stack.
+ * op_sub - function that subtracts the top element
+ *           of the stack from the second top element of the stack.
  * @top: double pointer to the stack
  * @line_number: the line number where the opcode is called
  * Return: 0
@@ -23,11 +23,10 @@ void op_sub(stack_t **top, unsigned int line_number)
 
 	tmp = (*top)->next;
 	element1 = (*top)->n;
-    element2 = tmp->n;
+	element2 = tmp->n;
 	sub = element2 - element1;
-
-    (*top)->n = sub;
-    (*top)->next = tmp->next;
-    free(tmp);
+	(*top)->n = sub;
+	(*top)->next = tmp->next;
+	free(tmp);
 }
 
