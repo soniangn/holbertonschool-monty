@@ -1,4 +1,4 @@
-push 2
-# vdvdv
-push 6
+push 402
+push 98
+div Holberton
 pall
