@@ -19,14 +19,14 @@ void op_push(stack_t **top, unsigned int line_number)
 	if (value == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%d: usage: push integer\n", line_number);
-		free(top);
+		whilefree(top);
 		exit(EXIT_FAILURE);
 	}
 
 	if (_isdigit(value) == 1)
 	{
-		dprintf(STDERR_FILENO, "L%d: usage: push integer %s\n", line_number, value);
-		free(top);
+		dprintf(STDERR_FILENO, "L%d: usage: push integer\n", line_number);
+		whilefree(top);
 		exit(EXIT_FAILURE);
 	}
 
