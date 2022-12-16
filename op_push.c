@@ -2,14 +2,13 @@
 #include <unistd.h>
 #include <ctype.h>
 #include <string.h>
+char *value;
 /**
  * op_push - function that pushes an element to the stack
  * @top: double pointer to the stack
  * @line_number: the line number where the opcode is called
  * Return: 0
  */
-char *value;
-
 void op_push(stack_t **top, unsigned int line_number)
 {
 	stack_t *new = NULL;
