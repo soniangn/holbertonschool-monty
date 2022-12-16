@@ -70,6 +70,7 @@ Our program `monty` was developped with:
 |    nope   | Doesn't do anything |
 |   sub  | Subtracts the top element from the second top element of the stack |
 |    div   | Divides the second top element by the top element of the stack |
+|    mul   | Multiplies the second top element with the top element of the stack |
 
 ## Usage 📖
 
@@ -122,6 +123,8 @@ The projects include 12 files as follows:
 |    op_add.c   |  Function that adds the top two elements of the stack |
 |    op_sub.c   |  Function that subtracts the top element from the second top element of the stack |
 |    op_div.c   |  Function that divides the second top element by the top element of the stack |
+|    mul.c   | Function that multiplies the second top element with the top element of the stack |
+| mod.c | Function that computes the rest of the division of the second top element of the stack by the top element of the stack |
 
 
 ## Authors ✒️
